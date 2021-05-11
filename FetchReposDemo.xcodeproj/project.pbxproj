@@ -3,27 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E425D753264AD0B5005DE6B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D752264AD0B5005DE6B5 /* AppDelegate.swift */; };
 		E425D755264AD0B5005DE6B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D754264AD0B5005DE6B5 /* SceneDelegate.swift */; };
-		E425D757264AD0B5005DE6B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D756264AD0B5005DE6B5 /* ViewController.swift */; };
-		E425D75A264AD0B5005DE6B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E425D758264AD0B5005DE6B5 /* Main.storyboard */; };
+		E425D757264AD0B5005DE6B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D756264AD0B5005DE6B5 /* MainViewController.swift */; };
 		E425D75C264AD0B5005DE6B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E425D75B264AD0B5005DE6B5 /* Assets.xcassets */; };
 		E425D75F264AD0B5005DE6B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E425D75D264AD0B5005DE6B5 /* LaunchScreen.storyboard */; };
+		E425D767264AD24A005DE6B5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D766264AD24A005DE6B5 /* DetailsViewController.swift */; };
+		E425D76A264AD31E005DE6B5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E425D769264AD31E005DE6B5 /* RxCocoa */; };
+		E425D76C264AD31E005DE6B5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E425D76B264AD31E005DE6B5 /* RxSwift */; };
+		E425D76F264AD350005DE6B5 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = E425D76E264AD350005DE6B5 /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E425D74F264AD0B5005DE6B5 /* FetchReposDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchReposDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E425D752264AD0B5005DE6B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E425D754264AD0B5005DE6B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E425D756264AD0B5005DE6B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E425D759264AD0B5005DE6B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E425D756264AD0B5005DE6B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E425D75B264AD0B5005DE6B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E425D75E264AD0B5005DE6B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E425D760264AD0B5005DE6B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E425D766264AD24A005DE6B5 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E425D76C264AD31E005DE6B5 /* RxSwift in Frameworks */,
+				E425D76F264AD350005DE6B5 /* Reachability in Frameworks */,
+				E425D76A264AD31E005DE6B5 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +64,8 @@
 			children = (
 				E425D752264AD0B5005DE6B5 /* AppDelegate.swift */,
 				E425D754264AD0B5005DE6B5 /* SceneDelegate.swift */,
-				E425D756264AD0B5005DE6B5 /* ViewController.swift */,
-				E425D758264AD0B5005DE6B5 /* Main.storyboard */,
+				E425D756264AD0B5005DE6B5 /* MainViewController.swift */,
+				E425D766264AD24A005DE6B5 /* DetailsViewController.swift */,
 				E425D75B264AD0B5005DE6B5 /* Assets.xcassets */,
 				E425D75D264AD0B5005DE6B5 /* LaunchScreen.storyboard */,
 				E425D760264AD0B5005DE6B5 /* Info.plist */,
@@ -83,6 +89,11 @@
 			dependencies = (
 			);
 			name = FetchReposDemo;
+			packageProductDependencies = (
+				E425D769264AD31E005DE6B5 /* RxCocoa */,
+				E425D76B264AD31E005DE6B5 /* RxSwift */,
+				E425D76E264AD350005DE6B5 /* Reachability */,
+			);
 			productName = FetchReposDemo;
 			productReference = E425D74F264AD0B5005DE6B5 /* FetchReposDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +121,10 @@
 				Base,
 			);
 			mainGroup = E425D746264AD0B5005DE6B5;
+			packageReferences = (
+				E425D768264AD31E005DE6B5 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E425D76D264AD350005DE6B5 /* XCRemoteSwiftPackageReference "Reachability" */,
+			);
 			productRefGroup = E425D750264AD0B5005DE6B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +141,6 @@
 			files = (
 				E425D75F264AD0B5005DE6B5 /* LaunchScreen.storyboard in Resources */,
 				E425D75C264AD0B5005DE6B5 /* Assets.xcassets in Resources */,
-				E425D75A264AD0B5005DE6B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +151,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E425D757264AD0B5005DE6B5 /* ViewController.swift in Sources */,
+				E425D757264AD0B5005DE6B5 /* MainViewController.swift in Sources */,
 				E425D753264AD0B5005DE6B5 /* AppDelegate.swift in Sources */,
 				E425D755264AD0B5005DE6B5 /* SceneDelegate.swift in Sources */,
+				E425D767264AD24A005DE6B5 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E425D758264AD0B5005DE6B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E425D759264AD0B5005DE6B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E425D75D264AD0B5005DE6B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,6 +348,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E425D768264AD31E005DE6B5 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+		E425D76D264AD350005DE6B5 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E425D769264AD31E005DE6B5 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E425D768264AD31E005DE6B5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E425D76B264AD31E005DE6B5 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E425D768264AD31E005DE6B5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		E425D76E264AD350005DE6B5 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E425D76D264AD350005DE6B5 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E425D747264AD0B5005DE6B5 /* Project object */;
 }
