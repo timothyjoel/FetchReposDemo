@@ -15,9 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let vm = MainScreenViewModel()
-        let vc = MainViewController(vm: vm)
-        vc.title = "Sample title"
+        let vm = RepositoriesListViewModel()
+        let vc = RepositoriesListViewController(vm: vm)
         let nc = UINavigationController(rootViewController: vc)
         self.window = UIWindow(windowScene: windowScene)
         self.window?.backgroundColor = .systemBackground

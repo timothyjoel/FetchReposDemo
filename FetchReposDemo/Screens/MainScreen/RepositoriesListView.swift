@@ -13,14 +13,14 @@ protocol ConfigurableLayout {
     func setConstraints()
 }
 
-class MainScreenView: UIView, ConfigurableLayout {
+class RepositoriesListView: UIView, ConfigurableLayout {
     
     // MARK: - Properties
     
     public lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.delegate = self
-        $0.register(MainScreenTableViewCell.self, forCellReuseIdentifier: MainScreenTableViewCell.id)
+        $0.register(RepositoryListTableViewCell.self, forCellReuseIdentifier: RepositoryListTableViewCell.id)
         return $0
     }(UITableView())
     
@@ -58,7 +58,7 @@ class MainScreenView: UIView, ConfigurableLayout {
     
 }
 
-extension MainScreenView: UITableViewDelegate {
+extension RepositoriesListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60

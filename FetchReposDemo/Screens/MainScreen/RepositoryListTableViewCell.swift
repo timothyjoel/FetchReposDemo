@@ -8,11 +8,11 @@
 import UIKit
 import SDWebImage
 
-class MainScreenTableViewCell: UITableViewCell, ConfigurableLayout {
+class RepositoryListTableViewCell: UITableViewCell, ConfigurableLayout {
     
     // MARK: - Properties
     
-    static let id = "MainScreenTableViewCell"
+    static let id = "RepositoryListTableViewCell"
     private let imageSize: CGFloat = 46
     private let padding: CGFloat = 16
     

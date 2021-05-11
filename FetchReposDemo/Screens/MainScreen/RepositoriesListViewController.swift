@@ -9,15 +9,16 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class MainViewController: UIViewController {
+class RepositoriesListViewController: UIViewController {
     
-    private var vm: MainScreenViewModel
-    private var mainScreenView = MainScreenView()
+    // MARK: - Properties
+    private var vm: RepositoriesListViewModel
+    private var mainScreenView = RepositoriesListView()
     private let disposeBag = DisposeBag()
     
     // MARK: - Initializers
     
-    init(vm: MainScreenViewModel) {
+    init(vm: RepositoriesListViewModel) {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
     }
@@ -39,10 +40,6 @@ class MainViewController: UIViewController {
         vm.fetchRepositories()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     // MARK: - Setup
     
     private func setNavigationBar() {
@@ -61,15 +58,15 @@ class MainViewController: UIViewController {
     private func setRepositories() {
         vm.repositories
             .asDriver()
-            .drive(mainScreenView.tableView.rx.items(cellIdentifier: MainScreenTableViewCell.id, cellType: MainScreenTableViewCell.self)) { row , repository, cell in
+            .drive(mainScreenView.tableView.rx.items(cellIdentifier: RepositoryListTableViewCell.id, cellType: RepositoryListTableViewCell.self)) { row , repository, cell in
                 cell.set(with: repository)
         }.disposed(by: disposeBag)
     }
     
     private func setOnRepositorySelection() {
         mainScreenView.tableView.rx.modelSelected(RepositoryModel.self).subscribe(onNext: { [weak self] repository in
-            print(repository.name)
-            let vc = DetailsViewController()
+            let vm = RepositoryDetailsViewModel(repository: repository)
+            let vc = RepositoryDetailsViewController(vm: vm)
             self?.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: disposeBag)
     }
