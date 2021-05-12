@@ -8,11 +8,12 @@
 import UIKit
 import SDWebImage
 
-class RepositoryListTableViewCell: UITableViewCell, ConfigurableLayout {
+class RepositoryListTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    static let id = "RepositoryListTableViewCell"
+    public static let id = "RepositoryListTableViewCell"
+    public static let defaultHeight: CGFloat = 60
     private let imageSize: CGFloat = 46
     private let padding: CGFloat = 16
     
@@ -64,7 +65,7 @@ class RepositoryListTableViewCell: UITableViewCell, ConfigurableLayout {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: nil)
-        setUI()
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -82,7 +83,7 @@ class RepositoryListTableViewCell: UITableViewCell, ConfigurableLayout {
     
     // MARK: - Setup
     
-    func setUI() {
+    private func setupUI() {
         setSubviews()
         setConstraints()
     }

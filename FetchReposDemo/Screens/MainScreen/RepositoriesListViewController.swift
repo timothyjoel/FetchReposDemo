@@ -51,11 +51,12 @@ class RepositoriesListViewController: UIViewController {
     // MARK: - Methods
     
     private func setBindings() {
-        setRepositories()
-        setOnRepositorySelection()
+        observeRepositories()
+        observeRepositorySelection()
+        observeStatus()
     }
     
-    private func setRepositories() {
+    private func observeRepositories() {
         vm.repositories
             .asDriver()
             .drive(mainScreenView.tableView.rx.items(cellIdentifier: RepositoryListTableViewCell.id, cellType: RepositoryListTableViewCell.self)) { row , repository, cell in
@@ -63,7 +64,13 @@ class RepositoriesListViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    private func setOnRepositorySelection() {
+    private func observeStatus() {
+        vm.status.asDriver().skip(1).drive(onNext: { [weak self] status in
+            self?.mainScreenView.set(for: status)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func observeRepositorySelection() {
         mainScreenView.tableView.rx.modelSelected(RepositoryModel.self).subscribe(onNext: { [weak self] repository in
             let vm = RepositoryDetailsViewModel(repository: repository)
             let vc = RepositoryDetailsViewController(vm: vm)

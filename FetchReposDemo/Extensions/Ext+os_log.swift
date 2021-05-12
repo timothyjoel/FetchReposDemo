@@ -16,5 +16,7 @@ extension OSLog {
     static let network = OSLog(subsystem: subsystem, category: "network")
     /// View cycle logs.
     static let viewCycle = OSLog(subsystem: subsystem, category: "viewcycle")
+    /// View cycle logs.
+    static let view = OSLog(subsystem: subsystem, category: "view")
     
 }

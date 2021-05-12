@@ -35,6 +35,8 @@
 		E425D7A1264B0E69005DE6B5 /* Ext+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A0264B0E69005DE6B5 /* Ext+UIImage.swift */; };
 		E425D7A5264B2DE3005DE6B5 /* RepositoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A4264B2DE3005DE6B5 /* RepositoryDetailsViewModel.swift */; };
 		E425D7A7264B2E29005DE6B5 /* RepositoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */; };
+		E425D7AA264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */; };
+		E425D7AD264C6AD3005DE6B5 /* RxReachability in Frameworks */ = {isa = PBXBuildFile; productRef = E425D7AC264C6AD3005DE6B5 /* RxReachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		E425D7A0264B0E69005DE6B5 /* Ext+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIImage.swift"; sourceTree = "<group>"; };
 		E425D7A4264B2DE3005DE6B5 /* RepositoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewModel.swift; sourceTree = "<group>"; };
 		E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsView.swift; sourceTree = "<group>"; };
+		E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesLoadIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 				E425D76F264AD350005DE6B5 /* Reachability in Frameworks */,
 				E425D76A264AD31E005DE6B5 /* RxCocoa in Frameworks */,
 				E425D79D264B00E8005DE6B5 /* SDWebImage in Frameworks */,
+				E425D7AD264C6AD3005DE6B5 /* RxReachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,8 +188,7 @@
 			children = (
 				E425D756264AD0B5005DE6B5 /* RepositoriesListViewController.swift */,
 				E425D782264AD880005DE6B5 /* RepositoriesListViewModel.swift */,
-				E425D78E264AEA54005DE6B5 /* RepositoriesListView.swift */,
-				E425D790264AF0D0005DE6B5 /* RepositoryListTableViewCell.swift */,
+				E425D7A8264C588F005DE6B5 /* Views */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -198,6 +201,16 @@
 				E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */,
 			);
 			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		E425D7A8264C588F005DE6B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E425D78E264AEA54005DE6B5 /* RepositoriesListView.swift */,
+				E425D790264AF0D0005DE6B5 /* RepositoryListTableViewCell.swift */,
+				E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				E425D76E264AD350005DE6B5 /* Reachability */,
 				E425D77C264AD6BA005DE6B5 /* Alamofire */,
 				E425D79C264B00E8005DE6B5 /* SDWebImage */,
+				E425D7AC264C6AD3005DE6B5 /* RxReachability */,
 			);
 			productName = FetchReposDemo;
 			productReference = E425D74F264AD0B5005DE6B5 /* FetchReposDemo.app */;
@@ -255,6 +269,7 @@
 				E425D76D264AD350005DE6B5 /* XCRemoteSwiftPackageReference "Reachability" */,
 				E425D77B264AD6BA005DE6B5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E425D79B264B00E8005DE6B5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E425D7AB264C6AD3005DE6B5 /* XCRemoteSwiftPackageReference "RxReachability" */,
 			);
 			productRefGroup = E425D750264AD0B5005DE6B5 /* Products */;
 			projectDirPath = "";
@@ -293,6 +308,7 @@
 				E425D77F264AD6F9005DE6B5 /* Ext+os_log.swift in Sources */,
 				E425D787264AD9B7005DE6B5 /* RepositoryModel.swift in Sources */,
 				E425D791264AF0D0005DE6B5 /* RepositoryListTableViewCell.swift in Sources */,
+				E425D7AA264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift in Sources */,
 				E425D755264AD0B5005DE6B5 /* SceneDelegate.swift in Sources */,
 				E425D783264AD880005DE6B5 /* RepositoriesListViewModel.swift in Sources */,
 				E425D778264AD4A6005DE6B5 /* SystemIcon.swift in Sources */,
@@ -530,6 +546,14 @@
 				minimumVersion = 5.11.1;
 			};
 		};
+		E425D7AB264C6AD3005DE6B5 /* XCRemoteSwiftPackageReference "RxReachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxReachability";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -557,6 +581,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E425D79B264B00E8005DE6B5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		E425D7AC264C6AD3005DE6B5 /* RxReachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E425D7AB264C6AD3005DE6B5 /* XCRemoteSwiftPackageReference "RxReachability" */;
+			productName = RxReachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

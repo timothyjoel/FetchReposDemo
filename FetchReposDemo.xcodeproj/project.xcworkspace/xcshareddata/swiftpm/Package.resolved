@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "RxReachability",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxReachability",
+        "state": {
+          "branch": null,
+          "revision": "8087d7154796406c8981961858b31324743311cf",
+          "version": "1.2.1"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {

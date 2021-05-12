@@ -7,15 +7,9 @@
 
 import UIKit
 
-protocol ConfigurableLayout {
-    func setUI()
-    func setSubviews()
-    func setConstraints()
-}
-
-class RepositoriesListView: UIView, ConfigurableLayout {
+class RepositoriesListView: UIView {
     
-    // MARK: - Properties
+    // MARK: - Outlets
     
     public lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +17,8 @@ class RepositoriesListView: UIView, ConfigurableLayout {
         $0.register(RepositoryListTableViewCell.self, forCellReuseIdentifier: RepositoryListTableViewCell.id)
         return $0
     }(UITableView())
+    
+    private lazy var loaderIndicatorView = LoaderIndicatorView()
     
     // MARK: - Initalizers
     
@@ -35,25 +31,39 @@ class RepositoriesListView: UIView, ConfigurableLayout {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Methods
+    // MARK: - UI Setup
     
-    func setUI() {
+    private func setUI() {
         backgroundColor = .systemBackground
         setSubviews()
         setConstraints()
     }
     
-    func setSubviews() {
-        addSubview(tableView)
+    private func setSubviews() {
+        addSubviews(tableView, loaderIndicatorView)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        NSLayoutConstraint.activate([
+            loaderIndicatorView.topAnchor.constraint(equalTo: topAnchor),
+            loaderIndicatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            loaderIndicatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            loaderIndicatorView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    // MARK: - Methods
+    
+    public func set(for status: LoaderIndicatorStatus) {
+        loaderIndicatorView.isHidden = status == .loaded
+        tableView.isHidden = status != .loaded
+        loaderIndicatorView.set(for: status)
     }
     
 }
@@ -61,7 +71,7 @@ class RepositoriesListView: UIView, ConfigurableLayout {
 extension RepositoriesListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60
+        RepositoryListTableViewCell.defaultHeight
     }
     
 }

@@ -7,12 +7,15 @@
 
 import Foundation
 import os.log
+import Network
+import RxSwift
 import Alamofire
 
 class NetworkManager {
     
     typealias WebServiceResponse<T> = (T?, AFError?) -> Void
     static let shared = NetworkManager()
+    private let monitor = NWPathMonitor()
     
     private init() { }
     
