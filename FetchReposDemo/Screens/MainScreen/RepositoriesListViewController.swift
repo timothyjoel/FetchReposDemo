@@ -48,8 +48,6 @@ class RepositoriesListViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
     }
     
-    // MARK: - Methods
-    
     private func setBindings() {
         observeRepositories()
         observeRepositorySelection()
@@ -77,6 +75,8 @@ class RepositoriesListViewController: UIViewController {
             self?.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: disposeBag)
     }
+    
+    // MARK: - Actions
     
     @objc private func refreshTapped() {
         vm.fetchRepositories()

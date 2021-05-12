@@ -50,7 +50,7 @@ class LoaderIndicatorView: UIView {
     }
     
     
-    // MARK: - UI Setup
+    // MARK: - Setup
     
     private func setupUI() {
         setView()
