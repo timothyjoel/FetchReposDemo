@@ -20,6 +20,7 @@ class RepositoriesListViewModel {
     private var sortedRepositories: [RepositoryModel] = []
     private var disposeBag = DisposeBag()
     
+    public var title = "Repositories"
     public var repositories: BehaviorRelay<[RepositoryModel]> = BehaviorRelay(value: [])
     public var sorted: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     public var status: BehaviorRelay<LoaderIndicatorStatus> = BehaviorRelay(value: .loading)
@@ -28,8 +29,8 @@ class RepositoriesListViewModel {
     // MARK: - Methods
     
     public func fetchRepositories() {
+        guard NetMonitor.shared.hasConnection else { set(status: .noInternetConnection); return }
         set(status: .loading)
-        
         let group = DispatchGroup()
         var repositories = [RepositoryModel]()
         

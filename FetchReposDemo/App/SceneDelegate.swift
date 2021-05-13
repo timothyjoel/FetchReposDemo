@@ -18,6 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vm = RepositoriesListViewModel()
         let vc = RepositoriesListViewController(vm: vm)
         let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.prefersLargeTitles = true
+        nc.navigationBar.tintColor = .systemPink
         self.window = UIWindow(windowScene: windowScene)
         self.window?.backgroundColor = .systemBackground
         self.window!.rootViewController = nc
@@ -29,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-
+        NetMonitor.shared.startMonitoring()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -41,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-
+        NetMonitor.shared.stopMonitoring()
     }
 
 }

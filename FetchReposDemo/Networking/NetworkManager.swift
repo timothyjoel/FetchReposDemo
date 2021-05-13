@@ -14,8 +14,7 @@ import Alamofire
 class NetworkManager {
     
     typealias WebServiceResponse<T> = (T?, AFError?) -> Void
-    static let shared = NetworkManager()
-    private let monitor = NWPathMonitor()
+    static public let shared = NetworkManager()
     
     private init() { }
     
