@@ -46,12 +46,15 @@ class RepositoriesListViewController: UIViewController {
         title = "Repositories"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Unsort", style: .done, target: self, action: #selector(sortTapped))
+        navigationController?.navigationBar.tintColor = .systemPink
     }
     
     private func setBindings() {
         observeRepositories()
         observeRepositorySelection()
         observeStatus()
+        observeSortOption()
     }
     
     private func observeRepositories() {
@@ -68,6 +71,13 @@ class RepositoriesListViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
+    private func observeSortOption() {
+        vm.sorted.asDriver().drive(onNext: { [weak self] sorted in
+            self?.vm.setRepositories(sorted)
+            self?.navigationItem.leftBarButtonItem?.title = sorted ? "Unsort" : "Sort"
+        }).disposed(by: disposeBag)
+    }
+    
     private func observeRepositorySelection() {
         mainScreenView.tableView.rx.modelSelected(RepositoryModel.self).subscribe(onNext: { [weak self] repository in
             let vm = RepositoryDetailsViewModel(repository: repository)
@@ -80,6 +90,10 @@ class RepositoriesListViewController: UIViewController {
     
     @objc private func refreshTapped() {
         vm.fetchRepositories()
+    }
+    
+    @objc private func sortTapped() {
+        vm.toggleSortOption()
     }
 
 }

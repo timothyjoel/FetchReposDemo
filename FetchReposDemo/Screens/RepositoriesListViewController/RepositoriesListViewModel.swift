@@ -15,9 +15,14 @@ class RepositoriesListViewModel {
     // MARK: - Properties
     
     private let networkManager = NetworkManager.shared
-    public var repositories: BehaviorRelay<[RepositoryModel]> = BehaviorRelay(value: [])
-    public var status: BehaviorRelay<LoaderIndicatorStatus> = BehaviorRelay(value: .loading)
+    
+    private var unsortedRepositories: [RepositoryModel] = []
+    private var sortedRepositories: [RepositoryModel] = []
     private var disposeBag = DisposeBag()
+    
+    public var repositories: BehaviorRelay<[RepositoryModel]> = BehaviorRelay(value: [])
+    public var sorted: BehaviorRelay<Bool> = BehaviorRelay(value: true)
+    public var status: BehaviorRelay<LoaderIndicatorStatus> = BehaviorRelay(value: .loading)
     
     
     // MARK: - Methods
@@ -45,10 +50,22 @@ class RepositoriesListViewModel {
         }
         
         group.notify(queue: .main) { [weak self] in
-            self?.repositories.accept(repositories)
-            self?.set(status: .loaded)
+            guard let self = self else { return }
+            self.unsortedRepositories = repositories
+            self.sortedRepositories = repositories.sorted(by: { $0.name < $1.name })
+            self.repositories.accept(self.sorted.value ? self.sortedRepositories : self.unsortedRepositories)
+            self.set(status: .loaded)
         }
 
+    }
+    
+    public func toggleSortOption() {
+        sorted.accept(!sorted.value)
+    }
+    
+    public func setRepositories(_ sorted:  Bool) {
+        os_log(.info, log: .view, "Sorting repositories by name: %@", "\(sorted)")
+        repositories.accept(sorted ? sortedRepositories : unsortedRepositories)
     }
     
     private func set(status: LoaderIndicatorStatus) {

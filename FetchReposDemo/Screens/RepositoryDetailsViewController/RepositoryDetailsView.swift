@@ -79,7 +79,7 @@ class RepositoryDetailsView: UIView {
     public func set(for repository: RepositoryModel) {
         ownerImageView.sd_setImage(with: URL(string: repository.avatarLink), placeholderImage: placeholderImage)
         ownerNameLabel.text = repository.ownerName
-        repositoryNameLabel.text = repository.name
+        repositoryNameLabel.text = "\(repository.name)\nby"
         repositoryDescLabel.text = repository.desc
     }
     
