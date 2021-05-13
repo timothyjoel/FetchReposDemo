@@ -172,31 +172,31 @@
 		E425D796264AF88E005DE6B5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E425D797264AF8BE005DE6B5 /* MainScreen */,
-				E425D798264AF8DB005DE6B5 /* DetailsScreen */,
+				E425D797264AF8BE005DE6B5 /* RepositoriesListViewController */,
+				E425D798264AF8DB005DE6B5 /* RepositoryDetailsViewController */,
 				E425D772264AD41F005DE6B5 /* Models */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		E425D797264AF8BE005DE6B5 /* MainScreen */ = {
+		E425D797264AF8BE005DE6B5 /* RepositoriesListViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E425D756264AD0B5005DE6B5 /* RepositoriesListViewController.swift */,
 				E425D782264AD880005DE6B5 /* RepositoriesListViewModel.swift */,
 				E425D7A8264C588F005DE6B5 /* Views */,
 			);
-			path = MainScreen;
+			path = RepositoriesListViewController;
 			sourceTree = "<group>";
 		};
-		E425D798264AF8DB005DE6B5 /* DetailsScreen */ = {
+		E425D798264AF8DB005DE6B5 /* RepositoryDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E425D766264AD24A005DE6B5 /* RepositoryDetailsViewController.swift */,
 				E425D7A4264B2DE3005DE6B5 /* RepositoryDetailsViewModel.swift */,
 				E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */,
 			);
-			path = DetailsScreen;
+			path = RepositoryDetailsViewController;
 			sourceTree = "<group>";
 		};
 		E425D7A8264C588F005DE6B5 /* Views */ = {

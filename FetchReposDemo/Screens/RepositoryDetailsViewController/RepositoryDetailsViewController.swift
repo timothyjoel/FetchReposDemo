@@ -9,12 +9,15 @@ import UIKit
 
 class RepositoryDetailsViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var vm: RepositoryDetailsViewModel
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .green
-    }
+    
+    // MARK: -  Outlets
+    
+    private let contentView = RepositoryDetailsView()
+    
+    // MARK: - Initializers
     
     init(vm: RepositoryDetailsViewModel) {
         self.vm = vm
@@ -23,6 +26,17 @@ class RepositoryDetailsViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
+    
+    override func loadView() {
+        view = contentView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        contentView.set(for: vm.repository)
     }
 
 }
