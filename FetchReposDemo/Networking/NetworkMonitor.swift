@@ -7,6 +7,7 @@
 
 import Foundation
 import Network
+import os.log
  
 class NetMonitor {
     
@@ -17,7 +18,7 @@ class NetMonitor {
     private var monitor: NWPathMonitor
     private var queue = DispatchQueue.global()
     
-    public var hasConnection: Bool = true
+    public var hasConnection: Bool  { connectionType != .unknown }
     public var connectionType: ConnectionType = .wifi
  
     private init() {
@@ -27,10 +28,10 @@ class NetMonitor {
     }
  
     func startMonitoring() {
-        self.monitor.pathUpdateHandler = { path in
-            print(path)
-            self.hasConnection = path.status == .satisfied
+        self.monitor.pathUpdateHandler = { [weak self] path in
+            guard let self = self else { return }
             self.connectionType = self.checkConnectionTypeForPath(path)
+            os_log(.info, log: .network, "Network access changed to: %@", self.connectionType.rawValue)
         }
     }
  
@@ -46,14 +47,18 @@ class NetMonitor {
         } else if path.usesInterfaceType(.cellular) {
             return .cellular
         }
+        else if path.usesInterfaceType(.other) {
+            return .other
+        }
         return .unknown
     }
     
 }
 
-public enum ConnectionType {
+public enum ConnectionType: String {
     case wifi
     case ethernet
     case cellular
+    case other
     case unknown
 }

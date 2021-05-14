@@ -20,7 +20,7 @@ class RepositoryDetailsView: UIView {
     
     private lazy var ownerImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.image = placeholderImage
         $0.tintColor = .systemPink
         $0.clipsToBounds = true
