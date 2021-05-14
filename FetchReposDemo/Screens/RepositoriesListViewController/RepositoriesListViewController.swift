@@ -52,7 +52,7 @@ class RepositoriesListViewController: UIViewController {
     private func setBindings() {
         observeRepositories()
         observeRepositorySelection()
-        observeStatus()
+        observeCurrentViewStatus()
         observeSortOption()
     }
     
@@ -64,7 +64,7 @@ class RepositoriesListViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    private func observeStatus() {
+    private func observeCurrentViewStatus() {
         vm.status.asDriver().skip(1).drive(onNext: { [weak self] status in
             self?.contentView.set(for: status)
         }).disposed(by: disposeBag)
@@ -72,8 +72,7 @@ class RepositoriesListViewController: UIViewController {
     
     private func observeSortOption() {
         vm.sorted.asDriver().drive(onNext: { [weak self] sorted in
-            self?.vm.setRepositories(sorted)
-            self?.navigationItem.leftBarButtonItem?.title = sorted ? "Unsort" : "Sort"
+            self?.navigationItem.leftBarButtonItem?.title = sorted ? self?.vm.sortText.1 : self?.vm.sortText.0
         }).disposed(by: disposeBag)
     }
     

@@ -21,6 +21,7 @@ class RepositoriesListViewModel {
     private var disposeBag = DisposeBag()
     
     public var title = "Repositories"
+    public var sortText = ("Sort", "Unsort")
     public var repositories: BehaviorRelay<[RepositoryModel]> = BehaviorRelay(value: [])
     public var sorted: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     public var status: BehaviorRelay<LoaderIndicatorStatus> = BehaviorRelay(value: .loading)
@@ -36,7 +37,7 @@ class RepositoriesListViewModel {
         
         group.enter()
         networkManager.fetchBitbucketRepositories { fechtedRepositories, error in
-            guard error == nil else { print("handle error"); return }
+            guard error == nil else { return }
             guard let fetchedRepositories = fechtedRepositories else { return }
             repositories.append(contentsOf: fetchedRepositories)
             group.leave()
@@ -44,7 +45,7 @@ class RepositoriesListViewModel {
         
         group.enter()
         networkManager.fetchGithubRepositories { fechtedRepositories, error in
-            guard error == nil else { print("handle error"); return }
+            guard error == nil else { return }
             guard let fetchedRepositories = fechtedRepositories else { return }
             repositories.append(contentsOf: fetchedRepositories)
             group.leave()
@@ -62,15 +63,16 @@ class RepositoriesListViewModel {
     
     public func toggleSortOption() {
         sorted.accept(!sorted.value)
+        setRepositories(sorted.value)
     }
     
-    public func setRepositories(_ sorted:  Bool) {
-        os_log(.info, log: .view, "Sorting repositories by name: %@", "\(sorted)")
+    private func setRepositories(_ sorted:  Bool) {
+        os_log(.info, log: .view, "Sort repositories by name: %@", "\(sorted)")
         repositories.accept(sorted ? sortedRepositories : unsortedRepositories)
     }
     
     private func set(status: LoaderIndicatorStatus) {
-        os_log(.info, log: .view, "Setting status: %@", status.text)
+        os_log(.info, log: .view, "Set Repositories list status to: %@", status.text)
         self.status.accept(status)
     }
     
