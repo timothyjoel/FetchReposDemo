@@ -21,7 +21,7 @@
 		E425D77F264AD6F9005DE6B5 /* Ext+os_log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D77E264AD6F9005DE6B5 /* Ext+os_log.swift */; };
 		E425D781264AD847005DE6B5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D780264AD847005DE6B5 /* API.swift */; };
 		E425D783264AD880005DE6B5 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D782264AD880005DE6B5 /* RepositoriesListViewModel.swift */; };
-		E425D785264AD96C005DE6B5 /* BitBucketRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D784264AD96C005DE6B5 /* BitBucketRepositories.swift */; };
+		E425D785264AD96C005DE6B5 /* BitBucketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D784264AD96C005DE6B5 /* BitBucketRepository.swift */; };
 		E425D787264AD9B7005DE6B5 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D786264AD9B7005DE6B5 /* RepositoryModel.swift */; };
 		E425D78A264ADADA005DE6B5 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D789264ADADA005DE6B5 /* GithubRepository.swift */; };
 		E425D78F264AEA54005DE6B5 /* RepositoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D78E264AEA54005DE6B5 /* RepositoriesListView.swift */; };
@@ -36,6 +36,7 @@
 		E425D7A7264B2E29005DE6B5 /* RepositoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */; };
 		E425D7AA264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */; };
 		E425D7B1264DDB21005DE6B5 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */; };
+		E425D7B3264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +53,7 @@
 		E425D77E264AD6F9005DE6B5 /* Ext+os_log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+os_log.swift"; sourceTree = "<group>"; };
 		E425D780264AD847005DE6B5 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E425D782264AD880005DE6B5 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
-		E425D784264AD96C005DE6B5 /* BitBucketRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitBucketRepositories.swift; sourceTree = "<group>"; };
+		E425D784264AD96C005DE6B5 /* BitBucketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitBucketRepository.swift; sourceTree = "<group>"; };
 		E425D786264AD9B7005DE6B5 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		E425D789264ADADA005DE6B5 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		E425D78E264AEA54005DE6B5 /* RepositoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListView.swift; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsView.swift; sourceTree = "<group>"; };
 		E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesLoadIndicatorView.swift; sourceTree = "<group>"; };
 		E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkMonitor+ConnectionType.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +125,8 @@
 		E425D773264AD426005DE6B5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E425D7B4264EE8D2005DE6B5 /* NetworkMonitor */,
 				E425D779264AD5F0005DE6B5 /* NetworkManager.swift */,
-				E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */,
 				E425D780264AD847005DE6B5 /* API.swift */,
 				E425D788264ADA2E005DE6B5 /* Models */,
 			);
@@ -166,7 +168,7 @@
 		E425D788264ADA2E005DE6B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E425D784264AD96C005DE6B5 /* BitBucketRepositories.swift */,
+				E425D784264AD96C005DE6B5 /* BitBucketRepository.swift */,
 				E425D789264ADADA005DE6B5 /* GithubRepository.swift */,
 			);
 			path = Models;
@@ -210,6 +212,15 @@
 				E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E425D7B4264EE8D2005DE6B5 /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */,
+				E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */,
+			);
+			path = NetworkMonitor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E425D7B3264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift in Sources */,
 				E425D793264AF329005DE6B5 /* Ext+UIView.swift in Sources */,
 				E425D78A264ADADA005DE6B5 /* GithubRepository.swift in Sources */,
 				E425D77A264AD5F0005DE6B5 /* NetworkManager.swift in Sources */,
@@ -313,7 +325,7 @@
 				E425D781264AD847005DE6B5 /* API.swift in Sources */,
 				E425D79F264B0E06005DE6B5 /* CustomImage.swift in Sources */,
 				E425D767264AD24A005DE6B5 /* RepositoryDetailsViewController.swift in Sources */,
-				E425D785264AD96C005DE6B5 /* BitBucketRepositories.swift in Sources */,
+				E425D785264AD96C005DE6B5 /* BitBucketRepository.swift in Sources */,
 				E425D78F264AEA54005DE6B5 /* RepositoriesListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

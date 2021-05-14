@@ -55,7 +55,7 @@ class NetworkManager {
     private func getRepositoryModels(from repositories: BitbucketRepositories?) -> [RepositoryModel] {
         guard let repositories = repositories else { return [] }
         return repositories.values.map {
-            RepositoryModel(name: $0.name, desc: $0.valueDescription, ownerName: $0.owner.displayName, avatarLink: $0.owner.links.avatar.href, isBitbucket: true)
+            RepositoryModel(name: $0.name, desc: $0.repositoryDescripton, ownerName: $0.owner.displayName, avatarLink: $0.owner.links.avatar.href, isBitbucket: true)
         }
     }
     

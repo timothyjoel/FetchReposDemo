@@ -8,58 +8,52 @@
 import Foundation
 
 // MARK: - BitbucketRepositories
+
 struct BitbucketRepositories: Codable {
     let values: [BitBucketRepository]
 }
 
 // MARK: - Value
+
 struct BitBucketRepository: Codable {
     let owner: BitBucketOwner
-    let valueDescription, name: String
+    let repositoryDescripton: String
+    let name: String
 
     enum CodingKeys: String, CodingKey {
         case owner
-        case valueDescription = "description"
+        case repositoryDescripton = "description"
         case name
     }
 }
 
 // MARK: - Owner
+
 struct BitBucketOwner: Codable {
-    let displayName, uuid: String
+    let displayName: String
     let links: BitBucketLinks
-    let type: BitBucketTypeEnum
-    let nickname: String?
-    let accountID: String?
-    let username: String?
 
     enum CodingKeys: String, CodingKey {
         case displayName = "display_name"
-        case uuid, links, type, nickname
-        case accountID = "account_id"
-        case username
+        case links
     }
 }
 
 // MARK: - Links
+
 struct BitBucketLinks: Codable {
     
-    let linksSelf, html, avatar: BitBucketAvatar
+    let avatar: BitBucketAvatar
 
     enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case html, avatar
+        case avatar
     }
 }
 
 // MARK: - Avatar
+
 struct BitBucketAvatar: Codable {
     
     let href: String
     
-}
-
-enum BitBucketTypeEnum: String, Codable {
-    case team = "team"
-    case user = "user"
 }

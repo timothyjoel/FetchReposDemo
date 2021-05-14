@@ -19,7 +19,9 @@ class NetMonitor {
     private var queue = DispatchQueue.global()
     
     public var hasConnection: Bool  { connectionType != .unknown }
-    public var connectionType: ConnectionType = .wifi
+    public var connectionType: NetworkManager.ConnectionType = .wifi
+    
+    // MARK: - Initializers
  
     private init() {
         self.monitor = NWPathMonitor()
@@ -27,6 +29,8 @@ class NetMonitor {
         self.monitor.start(queue: queue)
     }
  
+    // MARK: - Methods
+    
     func startMonitoring() {
         self.monitor.pathUpdateHandler = { [weak self] path in
             guard let self = self else { return }
@@ -39,7 +43,7 @@ class NetMonitor {
         self.monitor.cancel()
     }
  
-    func checkConnectionTypeForPath(_ path: NWPath) -> ConnectionType {
+    func checkConnectionTypeForPath(_ path: NWPath) -> NetworkManager.ConnectionType {
         if path.usesInterfaceType(.wifi) {
             return .wifi
         } else if path.usesInterfaceType(.wiredEthernet) {
@@ -53,12 +57,4 @@ class NetMonitor {
         return .unknown
     }
     
-}
-
-public enum ConnectionType: String {
-    case wifi
-    case ethernet
-    case cellular
-    case other
-    case unknown
 }
