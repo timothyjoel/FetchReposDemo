@@ -23,7 +23,7 @@ class RepositoryListTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
         $0.image = UIImage(systemIcon: .user)?.withRenderingMode(.alwaysTemplate)
-        $0.tintColor = .systemPink
+        $0.tintColor = .mainColor
         $0.clipsToBounds = true
         $0.layer.cornerRadius = imageSize / 2
         return $0
@@ -57,7 +57,7 @@ class RepositoryListTableViewCell: UITableViewCell {
     private lazy var repositoryImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
-        $0.tintColor = .systemPink
+        $0.tintColor = .mainColor
         return $0
     }(UIImageView())
     

@@ -22,7 +22,7 @@ class RepositoryDetailsView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
         $0.image = placeholderImage
-        $0.tintColor = .systemPink
+        $0.tintColor = .mainColor
         $0.clipsToBounds = true
         return $0
     }(UIImageView())

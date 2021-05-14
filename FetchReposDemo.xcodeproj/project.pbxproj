@@ -37,6 +37,7 @@
 		E425D7AA264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */; };
 		E425D7B1264DDB21005DE6B5 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */; };
 		E425D7B3264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */; };
+		E425D7BA264EF105005DE6B5 /* Ext+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B9264EF105005DE6B5 /* Ext+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		E425D7A9264C58B7005DE6B5 /* RepositoriesLoadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesLoadIndicatorView.swift; sourceTree = "<group>"; };
 		E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkMonitor+ConnectionType.swift"; sourceTree = "<group>"; };
+		E425D7B9264EF105005DE6B5 /* Ext+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				E425D77E264AD6F9005DE6B5 /* Ext+os_log.swift */,
+				E425D7B9264EF105005DE6B5 /* Ext+UIColor.swift */,
 				E425D792264AF329005DE6B5 /* Ext+UIView.swift */,
 				E425D794264AF344005DE6B5 /* Ext+UIStackView.swift */,
 				E425D7A0264B0E69005DE6B5 /* Ext+UIImage.swift */,
@@ -325,6 +328,7 @@
 				E425D78A264ADADA005DE6B5 /* GithubRepository.swift in Sources */,
 				E425D77A264AD5F0005DE6B5 /* NetworkManager.swift in Sources */,
 				E425D7A7264B2E29005DE6B5 /* RepositoryDetailsView.swift in Sources */,
+				E425D7BA264EF105005DE6B5 /* Ext+UIColor.swift in Sources */,
 				E425D757264AD0B5005DE6B5 /* RepositoriesListViewController.swift in Sources */,
 				E425D7A5264B2DE3005DE6B5 /* RepositoryDetailsViewModel.swift in Sources */,
 				E425D753264AD0B5005DE6B5 /* AppDelegate.swift in Sources */,

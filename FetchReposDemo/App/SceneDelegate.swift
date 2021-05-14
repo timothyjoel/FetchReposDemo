@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc = RepositoriesListViewController(vm: vm)
         let nc = UINavigationController(rootViewController: vc)
         nc.navigationBar.prefersLargeTitles = true
-        nc.navigationBar.tintColor = .systemPink
+        nc.navigationBar.tintColor = .mainColor
         self.window = UIWindow(windowScene: windowScene)
         self.window?.backgroundColor = .systemBackground
         self.window!.rootViewController = nc

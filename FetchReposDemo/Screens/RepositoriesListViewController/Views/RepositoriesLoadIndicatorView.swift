@@ -14,14 +14,14 @@ class LoaderIndicatorView: UIView {
     private lazy var activityIndicator: UIActivityIndicatorView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.style = .large
-        $0.color = .systemPink
+        $0.color = .mainColor
         return $0
     }(UIActivityIndicatorView())
     
     private lazy var statusImage: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
-        $0.tintColor = .systemPink
+        $0.tintColor = .mainColor
         $0.backgroundColor = .systemBackground
         return $0
     }(UIImageView())
@@ -31,7 +31,7 @@ class LoaderIndicatorView: UIView {
         $0.font = .systemFont(ofSize: 17, weight: .semibold)
         $0.numberOfLines = 0
         $0.textAlignment = .center
-        $0.textColor = .systemPink
+        $0.textColor = .mainColor
         $0.backgroundColor = .systemBackground
         $0.text = "asdasd"
         return $0
