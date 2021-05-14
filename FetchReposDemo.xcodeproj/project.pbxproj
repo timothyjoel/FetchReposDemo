@@ -125,9 +125,9 @@
 		E425D773264AD426005DE6B5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E425D7B5264EF0A7005DE6B5 /* Network Manager */,
 				E425D7B4264EE8D2005DE6B5 /* NetworkMonitor */,
-				E425D779264AD5F0005DE6B5 /* NetworkManager.swift */,
-				E425D780264AD847005DE6B5 /* API.swift */,
+				E425D7B6264EF0B6005DE6B5 /* API */,
 				E425D788264ADA2E005DE6B5 /* Models */,
 			);
 			path = Networking;
@@ -221,6 +221,22 @@
 				E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */,
 			);
 			path = NetworkMonitor;
+			sourceTree = "<group>";
+		};
+		E425D7B5264EF0A7005DE6B5 /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E425D779264AD5F0005DE6B5 /* NetworkManager.swift */,
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		E425D7B6264EF0B6005DE6B5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E425D780264AD847005DE6B5 /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
