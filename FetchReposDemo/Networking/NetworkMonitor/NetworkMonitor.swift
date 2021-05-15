@@ -13,13 +13,13 @@ class NetMonitor {
     
     // MARK: - Properties
     
-    static public let shared = NetMonitor()
+    static let shared = NetMonitor()
     
     private var monitor: NWPathMonitor
     private var queue = DispatchQueue.global()
     
-    public var hasConnection: Bool  { connectionType != .unknown }
-    public var connectionType: NetworkManager.ConnectionType = .wifi
+    var hasConnection: Bool  { connectionType != .unknown }
+    var connectionType: NetworkManager.ConnectionType = .wifi
     
     // MARK: - Initializers
  

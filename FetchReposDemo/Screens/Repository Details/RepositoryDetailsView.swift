@@ -76,7 +76,7 @@ class RepositoryDetailsView: UIView {
     
     // MARK: - Methods
     
-    public func set(for repository: RepositoryModel) {
+    func set(for repository: RepositoryModel) {
         ownerImageView.sd_setImage(with: URL(string: repository.avatarLink), placeholderImage: placeholderImage)
         ownerNameLabel.text = repository.ownerName
         repositoryNameLabel.text = "\(repository.name)\nby"

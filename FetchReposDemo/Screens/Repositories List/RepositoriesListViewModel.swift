@@ -20,16 +20,16 @@ class RepositoriesListViewModel {
     private var sortedRepositories: [RepositoryModel] = []
     private var disposeBag = DisposeBag()
     
-    public var title = "Repositories"
-    public var sortText = ("Sort", "Unsort")
-    public var repositories: BehaviorRelay<[RepositoryModel]> = BehaviorRelay(value: [])
-    public var sorted: BehaviorRelay<Bool> = BehaviorRelay(value: true)
-    public var status: BehaviorRelay<LoaderIndicatorStatus> = BehaviorRelay(value: .loading)
+    var title = "Repositories"
+    var sortText = ("Sort", "Unsort")
+    var repositories: BehaviorRelay<[RepositoryModel]> = BehaviorRelay(value: [])
+    var sorted: BehaviorRelay<Bool> = BehaviorRelay(value: true)
+    var status: BehaviorRelay<LoaderIndicatorStatus> = BehaviorRelay(value: .loading)
     
     
     // MARK: - Methods
     
-    public func fetchRepositories() {
+    func fetchRepositories() {
         guard NetMonitor.shared.hasConnection else { set(status: .noInternetConnection); return }
         set(status: .loading)
         let group = DispatchGroup()
@@ -61,7 +61,7 @@ class RepositoriesListViewModel {
 
     }
     
-    public func toggleSortOption() {
+    func toggleSortOption() {
         sorted.accept(!sorted.value)
         setRepositories(sorted.value)
     }

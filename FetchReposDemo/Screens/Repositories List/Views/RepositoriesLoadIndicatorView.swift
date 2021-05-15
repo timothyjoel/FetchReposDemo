@@ -86,7 +86,7 @@ class LoaderIndicatorView: UIView {
     
     // MARK: - Methods
     
-    public func set(for status: LoaderIndicatorStatus) {
+    func set(for status: LoaderIndicatorStatus) {
         setLabel(for: status)
         setImage(for: status)
         setActivtyIndicator(for: status)
@@ -110,7 +110,7 @@ class LoaderIndicatorView: UIView {
     
 }
 
-public enum LoaderIndicatorStatus {
+enum LoaderIndicatorStatus {
     case loading
     case loaded
     case noInternetConnection

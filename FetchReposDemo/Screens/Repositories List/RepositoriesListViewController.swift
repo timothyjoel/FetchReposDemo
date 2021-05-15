@@ -9,12 +9,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RepositoriesListViewController: UIViewController {
+class RepositoriesListViewController: UIViewController, CoordinatingRepositoriesList  {
     
     // MARK: - Properties
     
+    var coordinator: RepositoriesListCoordinator?
     private var vm: RepositoriesListViewModel
-    private var contentView = RepositoriesListView()
+    private lazy var contentView = RepositoriesListView()
     private let disposeBag = DisposeBag()
     
     // MARK: - Initializers
@@ -46,7 +47,7 @@ class RepositoriesListViewController: UIViewController {
     private func setNavigationBar() {
         title = vm.title
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Unsort", style: .done, target: self, action: #selector(sortTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: vm.sortText.1, style: .done, target: self, action: #selector(sortTapped))
     }
     
     private func setBindings() {
@@ -57,10 +58,8 @@ class RepositoriesListViewController: UIViewController {
     }
     
     private func observeRepositories() {
-        vm.repositories
-            .asDriver()
-            .drive(contentView.tableView.rx.items(cellIdentifier: RepositoryListTableViewCell.id, cellType: RepositoryListTableViewCell.self)) { row , repository, cell in
-                cell.set(with: repository)
+        vm.repositories.asDriver().drive(contentView.tableView.rx.items(cellIdentifier: RepositoryListTableViewCell.id, cellType: RepositoryListTableViewCell.self)) { row, repository, cell in
+            cell.set(with: repository)
         }.disposed(by: disposeBag)
     }
     
@@ -78,9 +77,7 @@ class RepositoriesListViewController: UIViewController {
     
     private func observeRepositorySelection() {
         contentView.tableView.rx.modelSelected(RepositoryModel.self).subscribe(onNext: { [weak self] repository in
-            let vm = RepositoryDetailsViewModel(repository: repository)
-            let vc = RepositoryDetailsViewController(vm: vm)
-            self?.navigationController?.pushViewController(vc, animated: true)
+            self?.coordinator?.handleEvent(.selected(repository))
         }).disposed(by: disposeBag)
     }
     

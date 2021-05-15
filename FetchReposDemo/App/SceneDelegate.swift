@@ -15,15 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let vm = RepositoriesListViewModel()
-        let vc = RepositoriesListViewController(vm: vm)
-        let nc = UINavigationController(rootViewController: vc)
-        nc.navigationBar.prefersLargeTitles = true
-        nc.navigationBar.tintColor = .mainColor
-        self.window = UIWindow(windowScene: windowScene)
-        self.window?.backgroundColor = .systemBackground
-        self.window!.rootViewController = nc
-        self.window!.makeKeyAndVisible()
+        let navigationController = getNavigationController()
+        let coordinatoor = RepositoriesListCoordinator()
+        let window = getWindow(windowScene: windowScene, navigationController: navigationController)
+        self.window = window
+        
+        coordinatoor.navigationController = navigationController
+        coordinatoor.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -44,6 +42,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         NetMonitor.shared.stopMonitoring()
+    }
+    
+    // MARK: - Helpers
+    
+    func getNavigationController() -> UINavigationController {
+        let nc = UINavigationController()
+        nc.navigationBar.prefersLargeTitles = true
+        nc.navigationBar.tintColor = .mainColor
+        return nc
+    }
+    
+    func getWindow(windowScene: UIWindowScene, navigationController: UINavigationController) -> UIWindow {
+        let window = UIWindow(windowScene: windowScene)
+        window.backgroundColor = .systemBackground
+        window.makeKeyAndVisible()
+        window.rootViewController = navigationController
+        return window
     }
 
 }

@@ -11,7 +11,7 @@ class RepositoriesListView: UIView {
     
     // MARK: - Outlets
     
-    public lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.delegate = self
         $0.register(RepositoryListTableViewCell.self, forCellReuseIdentifier: RepositoryListTableViewCell.id)
@@ -60,7 +60,7 @@ class RepositoriesListView: UIView {
     
     // MARK: - Methods
     
-    public func set(for status: LoaderIndicatorStatus) {
+    func set(for status: LoaderIndicatorStatus) {
         loaderIndicatorView.isHidden = status == .loaded
         tableView.isHidden = status != .loaded
         loaderIndicatorView.set(for: status)
@@ -69,9 +69,9 @@ class RepositoriesListView: UIView {
 }
 
 extension RepositoriesListView: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         RepositoryListTableViewCell.defaultHeight
     }
-    
+
 }

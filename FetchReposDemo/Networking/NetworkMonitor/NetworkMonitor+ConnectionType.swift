@@ -9,7 +9,7 @@ import Foundation
 
 extension NetworkManager {
     
-    public enum ConnectionType: String {
+    enum ConnectionType: String {
         case wifi
         case ethernet
         case cellular

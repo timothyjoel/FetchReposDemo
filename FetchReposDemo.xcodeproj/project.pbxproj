@@ -38,6 +38,8 @@
 		E425D7B1264DDB21005DE6B5 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */; };
 		E425D7B3264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */; };
 		E425D7BA264EF105005DE6B5 /* Ext+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7B9264EF105005DE6B5 /* Ext+UIColor.swift */; };
+		E425D7BD264FA8D8005DE6B5 /* RepositoriesListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7BC264FA8D8005DE6B5 /* RepositoriesListCoordinator.swift */; };
+		E425D7C0264FAC0B005DE6B5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425D7BF264FAC0B005DE6B5 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		E425D7B0264DDB21005DE6B5 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		E425D7B2264EE892005DE6B5 /* NetworkMonitor+ConnectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkMonitor+ConnectionType.swift"; sourceTree = "<group>"; };
 		E425D7B9264EF105005DE6B5 /* Ext+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIColor.swift"; sourceTree = "<group>"; };
+		E425D7BC264FA8D8005DE6B5 /* RepositoriesListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCoordinator.swift; sourceTree = "<group>"; };
+		E425D7BF264FAC0B005DE6B5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		E425D751264AD0B5005DE6B5 /* FetchReposDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E425D7BE264FABF6005DE6B5 /* Coordinators */,
 				E425D776264AD441005DE6B5 /* App */,
 				E425D773264AD426005DE6B5 /* Networking */,
 				E425D796264AF88E005DE6B5 /* Screens */,
@@ -180,31 +185,32 @@
 		E425D796264AF88E005DE6B5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E425D797264AF8BE005DE6B5 /* RepositoriesListViewController */,
-				E425D798264AF8DB005DE6B5 /* RepositoryDetailsViewController */,
+				E425D7BB264FA8B4005DE6B5 /* Coordinators */,
+				E425D797264AF8BE005DE6B5 /* Repositories List */,
+				E425D798264AF8DB005DE6B5 /* Repository Details */,
 				E425D772264AD41F005DE6B5 /* Models */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		E425D797264AF8BE005DE6B5 /* RepositoriesListViewController */ = {
+		E425D797264AF8BE005DE6B5 /* Repositories List */ = {
 			isa = PBXGroup;
 			children = (
 				E425D756264AD0B5005DE6B5 /* RepositoriesListViewController.swift */,
 				E425D782264AD880005DE6B5 /* RepositoriesListViewModel.swift */,
 				E425D7A8264C588F005DE6B5 /* Views */,
 			);
-			path = RepositoriesListViewController;
+			path = "Repositories List";
 			sourceTree = "<group>";
 		};
-		E425D798264AF8DB005DE6B5 /* RepositoryDetailsViewController */ = {
+		E425D798264AF8DB005DE6B5 /* Repository Details */ = {
 			isa = PBXGroup;
 			children = (
 				E425D766264AD24A005DE6B5 /* RepositoryDetailsViewController.swift */,
 				E425D7A4264B2DE3005DE6B5 /* RepositoryDetailsViewModel.swift */,
 				E425D7A6264B2E29005DE6B5 /* RepositoryDetailsView.swift */,
 			);
-			path = RepositoryDetailsViewController;
+			path = "Repository Details";
 			sourceTree = "<group>";
 		};
 		E425D7A8264C588F005DE6B5 /* Views */ = {
@@ -240,6 +246,22 @@
 				E425D780264AD847005DE6B5 /* API.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		E425D7BB264FA8B4005DE6B5 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E425D7BC264FA8D8005DE6B5 /* RepositoriesListCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		E425D7BE264FABF6005DE6B5 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E425D7BF264FAC0B005DE6B5 /* Coordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,12 +361,14 @@
 				E425D7B1264DDB21005DE6B5 /* NetworkMonitor.swift in Sources */,
 				E425D755264AD0B5005DE6B5 /* SceneDelegate.swift in Sources */,
 				E425D783264AD880005DE6B5 /* RepositoriesListViewModel.swift in Sources */,
+				E425D7C0264FAC0B005DE6B5 /* Coordinator.swift in Sources */,
 				E425D778264AD4A6005DE6B5 /* SystemIcon.swift in Sources */,
 				E425D7A1264B0E69005DE6B5 /* Ext+UIImage.swift in Sources */,
 				E425D795264AF344005DE6B5 /* Ext+UIStackView.swift in Sources */,
 				E425D781264AD847005DE6B5 /* API.swift in Sources */,
 				E425D79F264B0E06005DE6B5 /* CustomImage.swift in Sources */,
 				E425D767264AD24A005DE6B5 /* RepositoryDetailsViewController.swift in Sources */,
+				E425D7BD264FA8D8005DE6B5 /* RepositoriesListCoordinator.swift in Sources */,
 				E425D785264AD96C005DE6B5 /* BitBucketRepository.swift in Sources */,
 				E425D78F264AEA54005DE6B5 /* RepositoriesListView.swift in Sources */,
 			);

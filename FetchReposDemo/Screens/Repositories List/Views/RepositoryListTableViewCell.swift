@@ -12,10 +12,10 @@ class RepositoryListTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    public static let id = "RepositoryListTableViewCell"
-    public static let defaultHeight: CGFloat = 60
-    private let imageSize: CGFloat = 46
+    static let id = "RepositoryListTableViewCell"
+    static let defaultHeight: CGFloat = 60
     private let padding: CGFloat = 16
+    private let imageSize: CGFloat = 46
     
     // MARK: - Outlets
     
@@ -89,12 +89,12 @@ class RepositoryListTableViewCell: UITableViewCell {
         setConstraints()
     }
     
-    func setSubviews() {
+    private func setSubviews() {
         contentView.addSubviews(ownerImageView, labelsStackView, repositoryImageView)
         labelsStackView.addArrangedSubviews(repositoryNameLabel, ownerNameLabel)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             ownerImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             ownerImageView.heightAnchor.constraint(equalToConstant: imageSize),

@@ -10,7 +10,7 @@ import UIKit
 extension UIColor {
     
     static var mainColor: UIColor {
-        return .systemYellow
+        return .label
     }
     
 }

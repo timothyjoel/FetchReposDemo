@@ -14,20 +14,20 @@ import Alamofire
 class NetworkManager {
     
     typealias WebServiceResponse<T> = (T?, AFError?) -> Void
-    static public let shared = NetworkManager()
+    static let shared = NetworkManager()
     
     private init() { }
     
     // MARK: - Methods
     
-    public func fetchBitbucketRepositories(completion: @escaping WebServiceResponse<[RepositoryModel]>) {
+    func fetchBitbucketRepositories(completion: @escaping WebServiceResponse<[RepositoryModel]>) {
         fetch(BitbucketRepositories.self, api: .Bitbucket) { [weak self] fetchedRepositories, error in
             let repositories = self?.getRepositoryModels(from: fetchedRepositories)
             completion(repositories, error)
         }
     }
     
-    public func fetchGithubRepositories(completion: @escaping WebServiceResponse<[RepositoryModel]>) {
+    func fetchGithubRepositories(completion: @escaping WebServiceResponse<[RepositoryModel]>) {
         fetch(GithubRepositories.self, api: .Github) { [weak self] fetchedRepositories, error in
             let repositories = self?.getRepositoryModels(from: fetchedRepositories)
             completion(repositories, error)

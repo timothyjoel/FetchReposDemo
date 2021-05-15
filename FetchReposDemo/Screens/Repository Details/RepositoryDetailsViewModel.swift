@@ -9,7 +9,7 @@ import Foundation
 
 class RepositoryDetailsViewModel {
     
-    public var repository: RepositoryModel
+    var repository: RepositoryModel
     
     init(repository: RepositoryModel) {
         self.repository = repository
